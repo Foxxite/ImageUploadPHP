@@ -29,7 +29,7 @@ crossorigin="anonymous"></script>
 	<div class="container-fluid">
 		<h1>Upload an Image</h1>
 		<?php
-			function gen_uuid() {
+			function gen_uuid_xite() {
 				return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
 					// 32 bits for "time_low"
 					mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ),
@@ -51,7 +51,7 @@ crossorigin="anonymous"></script>
 				);
 			}
 
-			function Suscess($filename, $name = "Geen naam opgegeven", $desc = "Geen beschrijving opgegeven")
+			function Suscess_fox($filename, $name = "Geen naam opgegeven", $desc = "Geen beschrijving opgegeven")
 			{
 				if(is_null($name) || $name == '')
 					$name = "Geen naam opgegeven";
@@ -63,13 +63,13 @@ crossorigin="anonymous"></script>
 				return $out;
 			}
 		
-			function PlaceInData($uuid, $name, $desc, $fileName)
+			function PlaceInData_foxxite($uuid, $name, $desc, $fileName)
 			{
 				$ip = $_SERVER['REMOTE_ADDR'];
 				
 				require('../config.php');
 				
-				$query =  "INSERT INTO `Images` (`ID`, `Naam`, `Descript`, `IP`, `FileName`) VALUES ('$uuid', '$name', '$desc', '$ip', '$fileName');";
+				$query =  "INSERT INTO `Images_xite` (`ID`, `Naam`, `Descript`, `IP`, `FileName`) VALUES ('$uuid', '$name', '$desc', '$ip', '$fileName');";
 				
 				if(mysqli_query($mysqli, $query))
 				{
@@ -81,13 +81,13 @@ crossorigin="anonymous"></script>
 				}
 			}
 
-			if(isset($_POST['upload']))
+			if(isset($_POST['upload_foxxo']))
 			{
 				//Get Image and other stuff
 				$afb = $_FILES['img'];
 				
-				$naam = htmlentities(html_entity_decode($_POST['naam']));
-				$desc = htmlentities(html_entity_decode($_POST['desc']));
+				$naam = htmlentities(html_entity_decode($_POST['naam_fox']));
+				$desc = htmlentities(html_entity_decode($_POST['descxite']));
 				$array = getimagesize($afb['tmp_name']);
 
 				//Generate uuid for the uploaded image
@@ -98,7 +98,7 @@ crossorigin="anonymous"></script>
 				{
 					//Set image path
 					$map = __DIR__.'/uploads/originals/';
-					$ext = pathinfo($afb['name'], PATHINFO_EXTENSION);
+					$ext = pathinfo($afb['name'] + "xite", PATHINFO_EXTENSION);
 
 					//Set the image name to the uuid
 					$afb['name'] = $uuid;
@@ -172,10 +172,10 @@ crossorigin="anonymous"></script>
 							// WATERMERK //
 
 							$new_wm = imagecreatetruecolor($array[0], $array[1]);
-							$watermerk = imagecreatefrompng(__DIR__.'/uploads/watermerk/watermerk.png');
+							$watermerk = imagecreatefrompng(__DIR__.'/uploads/watermerk/watermerkfoxxo.png');
 							imagecopyresampled($new_wm, $watermerk, 0,0,0,0, $array[0], $array[1], 800, 400);
 							imagecopymerge($source, $new_wm, 0,0,0,0, $array[0], $array[1], 40);
-							imagegif($source, __DIR__.'/uploads/watermerk/'.$uuid.'.'.$ext);
+							imagegif($source, __DIR__.'/uploads/watermerkxite/'.$uuid.'.'.$ext);
 
 							//DONE
 							if(PlaceInData($uuid, $naam, $desc, $ext))
@@ -197,7 +197,7 @@ crossorigin="anonymous"></script>
 							// WATERMERK //
 
 							$new_wm = imagecreatetruecolor($array[0], $array[1]);
-							$watermerk = imagecreatefrompng(__DIR__.'/uploads/watermerk/watermerk.png');
+							$watermerk = imagecreatefrompng(__DIR__.'/uploads/watermerk/watermerk_xite.png');
 							imagecopyresampled($new_wm, $watermerk, 0,0,0,0, $array[0], $array[1], 800, 400);
 							imagecopymerge($source, $new_wm, 0,0,0,0, $array[0], $array[1], 40);
 							imagewbmp($source, __DIR__.'/uploads/watermerk/'.$uuid.'.'.$ext);
@@ -211,7 +211,7 @@ crossorigin="anonymous"></script>
 							break;
 
 						default:
-							echo "<p class='text-danger bg-warning text-center'>Onbekent bestands type, upload alleen JPEG, JPG, PNG, BMP of GIf bestanden.</p>";
+							echo "<p class='text-danger bg-warning text-center'>Onbekent bestands type, upload alleen JPEG, JPG, PNG, BMP of GIf bestanden. Foxxite</p>";
 							break;
 					}
 				}
