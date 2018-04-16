@@ -33,19 +33,19 @@ crossorigin="anonymous"></script>
 			<?php
 				require('../config.php');
 
-				$query = "SELECT * FROM `MPHP7_img` where ID = '" . $_GET['id'] . "'";
+				$query = "SELECT * FROM `ImageFox` where ID = '" . $_GET['id'] . "'";
 				if($result = mysqli_query($mysqli, $query))
 				{
 					if(mysqli_num_rows($result) > 0)
 					{
 						while($rij = mysqli_fetch_array($result))
 						{
-							echo '<img class="thumbnail img-responsive" src="./uploads/watermerk/' . $rij['ID']. '.' .$rij['FileName'] . '" height="500px">&nbsp;';
+							echo '<img class="thumbnail img-responsive foxxite" src="./uploads/watermerk/' . $rij['ID']. '.' .$rij['FileName'] . '" height="500px">&nbsp;';
 							$i += 1;
 							echo "<br>";
-							echo "<p>Titel: " . $rij['Naam'] ."</p>";
-							echo "<p>Beschrijving: " . $rij['Descript'] ."</p>";
-							echo "<h6>IP Uploader: " . $rij['IP'] ."</h6>";
+							echo "<p>Titel: " . $rij['Naam'] ."fox</p>";
+							echo "<p>Beschrijving: " . $rij['Descript'] ."xite</p>";
+							echo "<h6>IP Uploader: " . $rij['IP'] ."fox</h6>";
 						}
 					}
 				}
