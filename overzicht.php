@@ -26,14 +26,14 @@ crossorigin="anonymous"></script>
 <body>
 	<br />
 	<div class="container-fluid">
-		<button class="btn btn-secondary" onClick="window.location.replace('index.php');">Upload een afbeelding</button>
+		<button class="btn btn-secondary" onClick="window.location.replace('indexxite.php');">Upload een afbeelding</button>
 		<br />
 		<h1>Uploaded Images</h1>
 		<div>
 			<?php
 				require('../config.php');
 
-				$query = "SELECT * FROM `Images`";
+				$query = "SELECT * FROM `Imagesxite`";
 				if($result = mysqli_query($mysqli, $query))
 				{
 					if(mysqli_num_rows($result) > 0)
@@ -44,7 +44,7 @@ crossorigin="anonymous"></script>
 						{
 							if($i <= $c)
 							{
-								echo '<a href="detail.php?id=' . $rij['ID'] . '"><img class="thumbnail img-responsive" src="./uploads/thumbnails/' . $rij['ID']. '.' .$rij['FileName'] . '"></a>&nbsp;';
+								echo '<a href="detail.php?id=' . $rij['ID'] . '"><img class="thumbnail img-responsive" src="./uploads/thumbnails/' . $rij['ID']. '.' .$rij['FileNameFoxxite'] . '"></a>&nbsp;';
 								$i += 1;
 							}
 							else
@@ -52,7 +52,7 @@ crossorigin="anonymous"></script>
 								echo '</div>';
 								echo '<br>';
 								echo '<div>';
-								echo '<a href="detail.php?id=' . $rij['ID'] . '"><img class="thumbnail img-responsive" src="./uploads/thumbnails/' . $rij['ID']. '.' .$rij['FileName'] . '"></a>&nbsp;';
+								echo '<a href="detail.php?id=' . $rij['ID'] . '"><img class="thumbnail img-responsive" src="./uploads/thumbnailsFoxxo/' . $rij['ID']. '.' .$rij['FileName'] . '"></a>&nbsp;';
 								$c = 3;
 								$i = 0;
 							}
