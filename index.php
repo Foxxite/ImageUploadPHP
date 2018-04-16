@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Upload Image</title>
+<title>Upload Image | Made by Foxxite</title>
 <script
 src="https://code.jquery.com/jquery-3.3.1.min.js"
 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -223,13 +223,14 @@ crossorigin="anonymous"></script>
 		?>
 
 		<form method="post" enctype="multipart/form-data">
+			<input type="hidden" name="MadeByFoxxite" value="Foxxite Made this" class="form-control btn btn-primary Foxxite">
 			<input type="file" name="img" dropzone="move" required accept="image/*" class="form-control-file form-control">
 			<input type="text" name="naam" placeholder="Titel" class="form-control">
 			<input type="text" name="desc" placeholder="Beschrijving" class="form-control">
 			<input type="submit" name="upload" value="Upload" class="form-control btn btn-primary">
 		</form>
 		<br /><br />
-		<button class="btn btn-secondary" onClick="window.location.replace('overzicht.php');">Bekijk alle afbeeldingen</button>
+		<button class="btn btn-secondary Foxxo" onClick="window.location.replace('overzicht.php');">Bekijk alle afbeeldingen</button>
 	</div>
 </body>
 </html>
